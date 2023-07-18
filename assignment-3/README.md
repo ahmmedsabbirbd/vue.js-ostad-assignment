@@ -14,7 +14,7 @@ And it's assignment of Vue.js of OSTAD.
 
 
 ## documentation of assignment
-![wellcome project](https://raw.githubusercontent.com/ahmmedsabbirbd/vue.js-ostad-assignment/master/assignment-3/code.png)
+![wellcome project](https://raw.githubusercontent.com/ahmmedsabbirbd/vue.js-ostad-assignment/master/assignment-3/src/assets/welcome.png)
 
 
 
