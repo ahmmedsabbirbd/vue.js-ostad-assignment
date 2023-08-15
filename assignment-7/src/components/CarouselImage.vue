@@ -52,7 +52,7 @@ onBeforeUnmount(() => {
 
   </div>
   <div class="mx-auto items" id="carousel">
-    <div :style="`background-image:url(${item})`" class="item" v-for="item, index in items" :key="item">{{ index + 1 }}</div>
+    <div :style="`background-image:url(${item})`" class="item" v-for="(item, index) in items" :key="item">{{ index + 1 }}</div>
   </div>
 </template>
 
