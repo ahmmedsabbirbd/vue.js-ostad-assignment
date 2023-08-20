@@ -1,7 +1,12 @@
 <script setup>
-import { RouterView } from 'vue-router'
+  import ParentComponent from './components/ParentComponent.vue'
+
 </script>
 
 <template>
-  <RouterView />
+    <ParentComponent/>
 </template>
+
+<style scoped>
+
+</style>
