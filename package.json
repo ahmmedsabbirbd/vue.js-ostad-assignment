@@ -1,18 +1,20 @@
 {
-  "name": "assignment-8",
-  "private": true,
+  "name": "module-9",
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "axios": "^1.5.0",
+    "bootstrap": "^5.3.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.1.0",
-    "vite": "^4.3.9"
+    "@vitejs/plugin-vue": "^4.3.1",
+    "vite": "^4.4.9"
   }
 }

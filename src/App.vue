@@ -1,12 +1,12 @@
 <script setup>
-  import ParentComponent from './components/ParentComponent.vue'
-
+import { RouterLink, RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
-    <ParentComponent/>
+  <NavBar/>
+  <RouterView />
 </template>
 
 <style scoped>
-
 </style>
