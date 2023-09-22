@@ -1,6 +1,11 @@
-<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" width="125" height="125" alt="Vue Logo"></a></p>
-<p align="center"><a href="https://ostad.app/" target="_blank"><img src="https://github.com/alamin-php/ostad-assingment/blob/master/module-14/public/assets/ostad-app-logo-vector.png?raw=true" width="200" alt="Ostad Logo"></a></p>
-<h3 align="center">Assignment of Vue.js - Module-9</h3>
+# Vue Easy Shop
 
-### Task:
-Make A Simple Blog Using these API
+This is a Vue Easy shop. emplements api calling, product list show and product details show 
+
+## Live link(url)
+- [Website](https://vue-shop.banjir-ahammad.com/)
+- [github repository](https://github.com/banjirahammad/vue-shop.git)
+
+## Recommended IDE Setup
+
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
