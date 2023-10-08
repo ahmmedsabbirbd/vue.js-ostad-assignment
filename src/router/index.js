@@ -1,66 +1,86 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Register from "../components/Register.vue";
-import Todo from "../components/Todo.vue";
-import Dashboard from "../components/Dashboard.vue";
-import Login from "../components/Login.vue";
-import { useAuth } from "../stores/auth";
-// import Register from "@/components/Register.vue";
-// import Todo from "@/components/Todo.vue";
-// import Dashboard from "@/components/Dashboard.vue";
-// import Login from "@/components/Login.vue";
-// import {useAuth} from "@/stores/auth";
+import store from "../stores/authStore";
+import LoginComponent from '../components/Login.vue';
+import RegisterComponent from '../components/Register.vue';
+import DashboardComponent from '../components/Dashboard.vue';
+import Sidebar from '../components/Sidebar.vue'
+import Header from '../components/Header.vue'
+import ProductView from '../views/Products.vue';
+import DetailsComponent from '../components/Details.vue';
+
+
+const routes = [
+    {
+        path : '/',
+        name : 'Login',
+        component : LoginComponent,
+
+    },
+
+   
+
+    {
+        path : '/register',
+        name : 'Register',
+        component : RegisterComponent
+    },
+    {
+      path : '/dashboard',
+      name : 'Dashboard',
+      components : {
+        default:DashboardComponent,
+      LeftSideBar: Sidebar,
+      TopHeader: Header,
+      },
+
+      meta : {
+          isAuthenticated : true
+      }
+  },
+
+    {
+        path : '/products',
+        name : 'Products',
+        components :{
+          default: ProductView,
+        LeftSideBar: Sidebar,
+        TopHeader: Header,
+        },
+
+        meta : {
+            isAuthenticated : true
+        }
+    },
+    {
+        path : '/product-details/:id',
+        name : 'Details',
+        components : {
+          default:DetailsComponent,
+        LeftSideBar: Sidebar,
+        TopHeader: Header,
+        },
+
+        meta : {
+            isAuthenticated : true
+        }
+    },
+]
+
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "login",
-      component: Login,
-      meta: { title: "Login", guest: true },
-    },
-    {
-      path: "/dashboard",
-      name: "dashboard",
-      component: Dashboard,
-      meta: { title: "Dashboard", requiresAuth: true },
-    },
-
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: { title: "Register", guest: true },
-    },
-    {
-      path: "/todo",
-      name: "todo",
-      component: Todo,
-      meta: { title: "Todo", requiresAuth: true },
-    },
-  ],
+   history : createWebHistory(),
+   routes
 });
 
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || DEFAULT_TITLE;
 
-  const auth = useAuth();
+router.beforeEach((to,from,next)=>{
+    const state = store()
+    if(to.meta.isAuthenticated == true && !state.isAuthenticated){
+        next('/login')
+    }else{
+        next()
+    }
+})
 
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (!auth.getAuthStatus) {
-      next({ name: "login" });
-    } else {
-      next();
-    }
-  } else if (to.matched.some((record) => record.meta.guest)) {
-    if (auth.getAuthStatus) {
-      next({ name: "dashboard" });
-    } else {
-      next();
-    }
-  } else {
-    next();
-  }
-});
 
 export default router;

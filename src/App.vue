@@ -1,23 +1,19 @@
 <script setup>
-import { RouterView } from "vue-router";
-import DashboardLayout from "./views/DashboardLayout.vue";
-import GuestLayout from "./views/GuestLayout.vue";
-import { useAuth } from "./stores/auth";
-// import DashboardLayout from "@/views/DashboardLayout.vue";
-// import GuestLayout from "@/views/GuestLayout.vue";
-// import {useAuth} from "@/stores/auth";
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
+import Master from './components/Master.vue';
 
-const auth = useAuth();
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initFlowbite();
+})
 </script>
 
 <template>
-  <DashboardLayout v-if="auth.getAuthStatus">
-    <router-view></router-view>
-  </DashboardLayout>
-
-  <GuestLayout v-if="!auth.getAuthStatus">
-    <router-view></router-view>
-  </GuestLayout>
+  <Master></Master>
+        
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
